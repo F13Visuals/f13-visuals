@@ -1,416 +1,649 @@
-<!doctype html>
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>F13 Visuals</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-  box-sizing:border-box;
-}
+  <title>F13 Visuals</title>
 
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#fff8ef;
-  color:#302821;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-nav{
-  padding:18px 7%;
-  display:flex;
-  justify-content:space-between;
-  border-bottom:1px solid #eadbce;
-  background:#fff8efcc;
-  position:sticky;
-  top:0;
-  backdrop-filter:blur(8px);
-  z-index:10;
-}
+    body {
+      margin: 0;
+      background: #f8f3ed;
+      color: #38533d;
+      font-family: Arial, sans-serif;
+    }
 
-nav b{
-  color:#38533d;
-}
+    /* NAVIGATION */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 253, 249, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #eadbce;
+      padding: 18px 30px;
 
-nav span{
-  color:#c66f89;
-}
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.links a{
-  margin-left:22px;
-  color:#38533d;
-  text-decoration:none;
-  font-weight:bold;
-}
+    nav .logo {
+      font-family: Georgia, serif;
+      font-size: 25px;
+      font-weight: bold;
+      color: #38533d;
+      text-decoration: none;
+    }
 
-.hero{
-  text-align:center;
-  padding:110px 20px 130px;
-  background:
-    radial-gradient(circle at 15% 30%,#f2c7d2 0 10%,transparent 30%),
-    radial-gradient(circle at 85% 75%,#bdd0bd 0 12%,transparent 32%);
-}
+    nav .links {
+      display: flex;
+      gap: 25px;
+    }
 
-.eyebrow{
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:#735542;
-  font-weight:bold;
-  font-size:12px;
-}
+    nav .links a {
+      color: #38533d;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
 
-.hero h1{
-  font-family:Georgia,serif;
-  font-size:clamp(55px,10vw,100px);
-  line-height:.9;
-  margin:20px 0;
-  color:#38533d;
-}
+    nav .links a:hover {
+      color: #c97991;
+    }
 
-.hero h1 span{
-  color:#c66f89;
-}
+    /* HERO */
+    .hero {
+      text-align: center;
+      padding: 100px 20px 90px;
+      background:
+        radial-gradient(circle at top left, #f2d9df 0, transparent 35%),
+        radial-gradient(circle at bottom right, #dce9dc 0, transparent 35%);
+    }
 
-.hero p{
-  max-width:650px;
-  margin:0 auto 30px;
-  line-height:1.7;
-  font-size:18px;
-}
+    .hero .small-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #8a7770;
+      margin-bottom: 15px;
+    }
 
-.btn{
-  display:inline-block;
-  padding:14px 23px;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:bold;
-  margin:5px;
-}
+    .hero h1 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 65px;
+      color: #38533d;
+    }
 
-.primary{
-  background:#38533d;
-  color:white;
-}
+    .hero h2 {
+      margin: 12px 0;
+      font-family: Georgia, serif;
+      font-size: 35px;
+      color: #c97991;
+    }
 
-.secondary{
-  border:1px solid #38533d;
-  color:#38533d;
-}
+    .hero p {
+      max-width: 650px;
+      margin: 20px auto 30px;
+      line-height: 1.7;
+      color: #6f625d;
+      font-size: 17px;
+    }
 
-section{
-  max-width:1100px;
-  margin:auto;
-  padding:80px 7%;
-}
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-h2{
-  font-family:Georgia,serif;
-  color:#38533d;
-  font-size:42px;
-}
+    .button {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.25s;
+    }
 
-/* GALLERY */
+    .button.primary {
+      background: #38533d;
+      color: white;
+    }
 
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:30px;
-  max-width:750px;
-  margin:35px auto 0;
-}
+    .button.secondary {
+      background: #f2d9df;
+      color: #38533d;
+    }
 
-.pfp-card{
-  background:#fffdf9;
-  border:1px solid #eadbce;
-  border-radius:25px;
-  padding:12px 12px 20px;
-  text-align:center;
-  box-shadow:0 5px 15px #38533d10;
-  transition:transform .25s ease,box-shadow .25s ease;
-}
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px #38533d20;
+    }
 
-.pfp-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 18px 40px #38533d25;
-}
+    /* GENERAL SECTIONS */
+    section {
+      padding: 75px 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-.pfp{
-  width:100%;
-  aspect-ratio:1/1;
-  border-radius:18px;
-  overflow:hidden;
-  background:#f2e8df;
-}
+    section h2 {
+      text-align: center;
+      font-family: Georgia, serif;
+      font-size: 38px;
+      margin: 0 0 10px;
+      color: #38533d;
+    }
 
-.pfp img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-  transition:transform .3s ease;
-}
+    .section-description {
+      text-align: center;
+      color: #8a7770;
+      margin-bottom: 40px;
+    }
 
-.pfp-card:hover img{
-  transform:scale(1.04);
-}
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      max-width: 750px;
+      margin: 35px auto 0;
+    }
 
-.pfp-card h3{
-  margin:16px 0 5px;
-  color:#38533d;
-  font-family:Georgia,serif;
-  font-size:24px;
-}
+    .pfp-card {
+      background: #fffdf9;
+      border: 1px solid #eadbce;
+      border-radius: 25px;
+      padding: 12px 12px 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px #38533d10;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
 
-.pfp-card p{
-  margin:0;
-  color:#8a7770;
-  font-size:14px;
-}
+    .pfp-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 40px #38533d25;
+    }
 
-/* PRICES */
+    .pfp {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #f2e8df;
+    }
 
-.prices{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
+    .pfp img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease;
+    }
 
-.card{
-  background:#fffdf9;
-  border:1px solid #eadbce;
-  border-radius:24px;
-  padding:28px;
-}
+    .pfp-card:hover img {
+      transform: scale(1.04);
+    }
 
-.card.featured{
-  border:2px solid #e0a0b2;
-}
+    .pfp-card h3 {
+      margin: 16px 0 5px;
+      color: #38533d;
+      font-family: Georgia, serif;
+      font-size: 24px;
+    }
 
-.price{
-  font:48px Georgia;
-  color:#38533d;
-}
+    .pfp-card p {
+      margin: 0;
+      color: #8a7770;
+      font-size: 14px;
+    }
 
-.card p{
-  line-height:1.6;
-  color:#6b6159;
-  min-height:70px;
-}
+    /* PRICES */
+    .prices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 35px;
+    }
 
-/* ORDER */
+    .price-card {
+      background: #fffdf9;
+      border: 1px solid #eadbce;
+      border-radius: 25px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 5px 15px #38533d10;
+      transition: 0.25s;
+    }
 
-.order{
-  background:#38533d;
-  color:white;
-  border-radius:30px;
-  padding:45px;
-}
+    .price-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 30px #38533d20;
+    }
 
-.order h2{
-  color:white;
-}
+    .price-card h3 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: 25px;
+    }
 
-.order p{
-  line-height:1.7;
-  color:#dce7dc;
-}
+    .price {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 15px 0;
+      color: #c97991;
+    }
 
-footer{
-  text-align:center;
-  padding:35px;
-  border-top:1px solid #eadbce;
-  color:#756a61;
-}
+    .price-card p {
+      color: #8a7770;
+      line-height: 1.5;
+    }
 
-@media(max-width:700px){
+    /* ORDER */
+    .order-box {
+      max-width: 700px;
+      margin: 35px auto 0;
+      padding: 45px 30px;
+      text-align: center;
+      background: #fffdf9;
+      border: 1px solid #eadbce;
+      border-radius: 30px;
+      box-shadow: 0 8px 25px #38533d12;
+    }
 
-  .gallery{
-    grid-template-columns:1fr;
-  }
+    .order-box h3 {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      margin-top: 0;
+    }
 
-  .prices{
-    grid-template-columns:1fr;
-  }
+    .order-box p {
+      color: #6f625d;
+      line-height: 1.6;
+    }
 
-  .links{
-    display:none;
-  }
+    /* CONTACT */
+    .contact-box {
+      max-width: 800px;
+      margin: 35px auto 0;
+      padding: 45px 30px;
+      background: #fffdf9;
+      border: 1px solid #eadbce;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 8px 25px #38533d12;
+    }
 
-}
-</style>
+    .contact-box h3 {
+      font-family: Georgia, serif;
+      font-size: 30px;
+      margin-top: 0;
+    }
 
+    .contact-box p {
+      color: #6f625d;
+      margin-bottom: 25px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .contact-button {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      transition: 0.25s;
+    }
+
+    .contact-button.email {
+      background: #38533d;
+      color: white;
+    }
+
+    .contact-button.phone {
+      background: #f2d9df;
+      color: #38533d;
+    }
+
+    .contact-button.discord {
+      background: #dce9dc;
+      color: #38533d;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px #38533d20;
+    }
+
+    .discord-name {
+      margin-top: 25px;
+      font-size: 16px;
+      color: #8a7770;
+    }
+
+    .discord-name strong {
+      color: #38533d;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 35px 20px;
+      background: #38533d;
+      color: white;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin: 5px;
+    }
+
+    footer a {
+      color: #f2d9df;
+      text-decoration: none;
+    }
+
+    /* MOBILE */
+    @media (max-width: 750px) {
+      nav {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav .links {
+        gap: 15px;
+        font-size: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 75px 20px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero h2 {
+        font-size: 28px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+      }
+
+      .prices {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      section {
+        padding: 60px 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <b>F13 <span>Visuals</span> 🌸</b>
+  <!-- NAVIGATION -->
+  <nav>
+    <a class="logo" href="#">F13 Visuals 🌸</a>
 
-  <div class="links">
-    <a href="#gallery">Gallery</a>
-    <a href="#prices">Prices</a>
-    <a href="#order">Order</a>
-  </div>
-</nav>
+    <div class="links">
+      <a href="#gallery">Gallery</a>
+      <a href="#prices">Prices</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-<header class="hero">
 
-  <div class="eyebrow">
-    Custom profile pictures
-  </div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="small-title">Custom profile pictures</div>
 
-  <h1>
-    Made for <span>you.</span>
-  </h1>
+    <h1>Made for you.</h1>
 
-  <p>
-    Unique custom PFPs with a soft cherry-blossom inspired style.
-    Tell me your idea and I'll turn it into your new profile picture.
-  </p>
+    <h2>F13 Visuals 🌸</h2>
 
-  <a class="btn primary" href="#order">
-    Order a PFP
-  </a>
+    <p>
+      Unique custom PFPs with a soft cherry-blossom inspired style.
+      Tell me your idea and I'll turn it into your new profile picture.
+    </p>
 
-  <a class="btn secondary" href="#gallery">
-    See my work
-  </a>
-
-</header>
-
-<section id="gallery">
-
-  <h2>My work</h2>
-
-  <p>
-    Some of my custom profile pictures.
-  </p>
-
-  <div class="gallery">
-
-```
-<div class="pfp-card">
-
-  <div class="pfp">
-    <img src="UG's%20PFP.png" alt="UG's PFP">
+    <div class="buttons">
+      <a class="button primary" href="#order">Order a PFP</a>
+      <a class="button secondary" href="#gallery">See my work</a>
+    </div>
   </div>
 
-  <h3>UG</h3>
-  <p>Custom PFP</p>
 
-</div>
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2>My work</h2>
 
+    <p class="section-description">
+      Some of my custom profile pictures.
+    </p>
 
-<div class="pfp-card">
+    <div class="gallery">
 
-  <div class="pfp">
-    <img src="Ravixx's%20PFP.png" alt="Ravixx's PFP">
-  </div>
+      <div class="pfp-card">
+        <div class="pfp">
+          <img src="UG's%20PFP.png" alt="UG's PFP">
+        </div>
 
-  <h3>Ravixx</h3>
-  <p>Custom PFP</p>
-
-</div>
-```
-
-  </div>
-
-</section>
-
-<section id="prices">
-
-  <h2>Simple prices</h2>
-
-  <div class="prices">
-
-```
-<div class="card">
-  <b>Simple</b>
-
-  <div class="price">
-    $1–$3
-  </div>
-
-  <p>
-    Clean PFP with a basic design.
-  </p>
-
-  <a class="btn secondary" href="#order">
-    Choose
-  </a>
-</div>
+        <h3>UG</h3>
+        <p>Custom PFP</p>
+      </div>
 
 
-<div class="card featured">
-  <b>Custom</b>
+      <div class="pfp-card">
+        <div class="pfp">
+          <img src="Ravixx's%20PFP.png" alt="Ravixx's PFP">
+        </div>
 
-  <div class="price">
-    $4–$7
-  </div>
+        <h3>Ravixx</h3>
+        <p>Custom PFP</p>
+      </div>
 
-  <p>
-    More detail based on your character, colors and idea.
-  </p>
-
-  <a class="btn primary" href="#order">
-    Choose
-  </a>
-</div>
+    </div>
+  </section>
 
 
-<div class="card">
-  <b>Detailed</b>
+  <!-- PRICES -->
+  <section id="prices">
+    <h2>Simple prices</h2>
 
-  <div class="price">
-    $8–$10
-  </div>
+    <p class="section-description">
+      Choose the style that fits your idea.
+    </p>
 
-  <p>
-    Complex designs with extra details.
-  </p>
+    <div class="prices">
 
-  <a class="btn secondary" href="#order">
-    Choose
-  </a>
-</div>
-```
+      <div class="price-card">
+        <h3>Simple</h3>
 
-  </div>
+        <div class="price">$1–$3</div>
 
-</section>
+        <p>
+          Clean PFP with a basic design.
+        </p>
 
-<section id="order">
+        <a class="button primary" href="#order">Choose</a>
+      </div>
 
-  <div class="order">
 
-```
-<h2>
-  Want a custom PFP?
-</h2>
+      <div class="price-card">
+        <h3>Custom</h3>
 
-<p>
-  Tell me what you want and I'll confirm the price.
-  Payment links can be added once your payment setup is ready.
-</p>
+        <div class="price">$4–$7</div>
 
-<a
-  class="btn"
-  style="background:#f3c4d0;color:#38533d"
-  href="mailto:YOUR_EMAIL_HERE"
->
-  Start an order
-</a>
-```
+        <p>
+          More detail based on your character,
+          colors and idea.
+        </p>
 
-  </div>
+        <a class="button primary" href="#order">Choose</a>
+      </div>
 
-</section>
 
-<footer>
-  © 2026 F13 Visuals · Custom PFPs from $1–$10
-</footer>
+      <div class="price-card">
+        <h3>Detailed</h3>
+
+        <div class="price">$8–$10</div>
+
+        <p>
+          Complex designs with extra details.
+        </p>
+
+        <a class="button primary" href="#order">Choose</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ORDER -->
+  <section id="order">
+    <h2>Want a custom PFP?</h2>
+
+    <p class="section-description">
+      Tell me what you want and I'll confirm the price.
+    </p>
+
+    <div class="order-box">
+
+      <h3>Start your order 🌸</h3>
+
+      <p>
+        Send me your idea, the style you want,
+        and any pictures or references you have.
+      </p>
+
+      <a
+        class="button primary"
+        href="mailto:service.f13visuals@gmail.com?subject=F13%20Visuals%20PFP%20Order"
+      >
+        Start an order
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <h2>Contact me</h2>
+
+    <p class="section-description">
+      Have a question or want to order a PFP? Get in touch with me.
+    </p>
+
+    <div class="contact-box">
+
+      <h3>Let's talk 🌸</h3>
+
+      <p>
+        Choose how you'd like to contact F13 Visuals.
+      </p>
+
+      <div class="contact-buttons">
+
+        <!-- EMAIL -->
+        <a
+          class="contact-button email"
+          href="mailto:service.f13visuals@gmail.com"
+        >
+          📧 Email Me
+        </a>
+
+        <!-- TEXT MESSAGE -->
+        <a
+          class="contact-button phone"
+          href="sms:+31627350589"
+        >
+          📱 Text Me
+        </a>
+
+        <!-- DISCORD -->
+        <button
+          class="contact-button discord"
+          onclick="copyDiscord()"
+        >
+          💬 Copy Discord
+        </button>
+
+      </div>
+
+      <div class="discord-name">
+        Discord: <strong>f13_yt</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © 2026 F13 Visuals · Custom PFPs from $1–$10
+    </p>
+
+    <p>
+      <a href="mailto:service.f13visuals@gmail.com">
+        service.f13visuals@gmail.com
+      </a>
+    </p>
+
+    <p>
+      Discord: f13_yt
+    </p>
+
+  </footer>
+
+
+  <!-- DISCORD COPY SCRIPT -->
+  <script>
+    function copyDiscord() {
+      navigator.clipboard.writeText("f13_yt");
+
+      const button = document.querySelector(".discord");
+      const originalText = button.innerHTML;
+
+      button.innerHTML = "✅ Copied!";
+
+      setTimeout(function() {
+        button.innerHTML = originalText;
+      }, 2000);
+    }
+  </script>
 
 </body>
 </html>
