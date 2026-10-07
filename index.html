@@ -486,7 +486,7 @@
     ========================= */
 
     .contact-box {
-      max-width: 750px;
+      max-width: 800px;
 
       margin: 0 auto;
 
@@ -517,6 +517,8 @@
       display: flex;
 
       justify-content: center;
+
+      align-items: center;
 
       flex-wrap: wrap;
 
@@ -567,16 +569,68 @@
       color: var(--background);
     }
 
-    .discord-name {
-      margin-top: 20px;
 
-      color: var(--muted);
+    /* =========================
+       DISCORD
+    ========================= */
 
-      font-size: 0.95rem;
+    .discord-section {
+      margin-top: 25px;
+
+      padding-top: 25px;
+
+      border-top: 1px solid var(--border);
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
     }
 
-    .discord-name strong {
+    .discord-user {
+      color: var(--text-light);
+
+      font-size: 1rem;
+    }
+
+    .discord-user strong {
       color: var(--text);
+
+      font-size: 1.05rem;
+    }
+
+    .discord-join {
+      display: inline-block;
+
+      padding: 11px 20px;
+
+      border-radius: 999px;
+
+      background: #5865F2;
+
+      color: white;
+
+      text-decoration: none;
+
+      font-weight: 700;
+
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .discord-join:hover {
+      transform: translateY(-3px);
+
+      opacity: 0.9;
+
+      box-shadow: 0 8px 20px var(--shadow);
     }
 
 
@@ -652,6 +706,11 @@
       .hero h1 {
         letter-spacing: -2px;
       }
+
+      .discord-section {
+        flex-direction: column;
+      }
+
     }
 
     @media (max-width: 500px) {
@@ -673,6 +732,7 @@
 
         height: 36px;
       }
+
     }
 
   </style>
@@ -986,10 +1046,10 @@
         Choose how you'd like to contact F13 Visuals.
       </p>
 
+
+      <!-- EMAIL / PHONE -->
+
       <div class="contact-buttons">
-
-
-        <!-- EMAIL -->
 
         <a
           class="contact-button email"
@@ -999,8 +1059,6 @@
         </a>
 
 
-        <!-- PHONE -->
-
         <a
           class="contact-button phone"
           href="sms:+31627350589"
@@ -1008,23 +1066,26 @@
           📱 Text Me
         </a>
 
-
-        <!-- DISCORD -->
-
-        <button
-          class="contact-button discord"
-          onclick="copyDiscord()"
-        >
-          💬 Copy Discord
-        </button>
-
-
       </div>
 
-      <div class="discord-name">
 
-        Discord:
-        <strong>f13visuals</strong>
+      <!-- DISCORD -->
+
+      <div class="discord-section">
+
+        <div class="discord-user">
+          💬 Discord:
+          <strong>f13visuals</strong>
+        </div>
+
+        <a
+          class="discord-join"
+          href="https://discord.gg/9mRwUYaBW2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join the Discord →
+        </a>
 
       </div>
 
@@ -1110,39 +1171,6 @@
       document
         .getElementById("themeIcon")
         .textContent = "🌙";
-
-    }
-
-
-    /* =========================
-       COPY DISCORD
-    ========================= */
-
-    function copyDiscord() {
-
-      navigator.clipboard.writeText(
-        "f13visuals"
-      );
-
-
-      const button =
-        document.querySelector(".discord");
-
-
-      const originalText =
-        button.innerHTML;
-
-
-      button.innerHTML =
-        "✅ Copied!";
-
-
-      setTimeout(function() {
-
-        button.innerHTML =
-          originalText;
-
-      }, 2000);
 
     }
 
