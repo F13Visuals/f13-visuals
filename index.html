@@ -7,11 +7,6 @@
   <title>F13 Visuals 🌸</title>
 
   <style>
-
-    /* =========================
-       COLORS
-    ========================= */
-
     :root {
       --background: #f8f3ed;
       --card: #fffdf9;
@@ -40,11 +35,6 @@
       --footer: #101410;
     }
 
-
-    /* =========================
-       RESET
-    ========================= */
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -56,569 +46,338 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-
+      font-family: Arial, sans-serif;
       background: var(--background);
       color: var(--text);
-
       line-height: 1.6;
-
-      transition:
-        background 0.3s ease,
-        color 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease;
     }
-
-
-    /* =========================
-       NAVIGATION
-    ========================= */
 
     nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 15px 6%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      padding: 18px 7%;
-
-      background: var(--card);
-
-      border-bottom: 1px solid var(--border);
-
-      box-shadow: 0 4px 20px var(--shadow);
-
       transition: background 0.3s ease;
     }
 
     .logo {
-      color: var(--text);
-
-      text-decoration: none;
-
-      font-size: 1.4rem;
-
+      font-size: 1.3rem;
       font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
     }
 
-    .right-side {
+    .nav-links {
       display: flex;
       align-items: center;
-
       gap: 25px;
     }
 
-    .links {
-      display: flex;
-
-      gap: 25px;
-    }
-
-    .links a {
-      color: var(--text);
-
+    .nav-links a {
+      color: var(--text-light);
       text-decoration: none;
-
       font-weight: 600;
-
-      transition: opacity 0.2s ease;
+      transition: color 0.2s ease;
     }
 
-    .links a:hover {
-      opacity: 0.65;
+    .nav-links a:hover {
+      color: var(--pink-dark);
     }
 
-
-    /* =========================
-       DARK MODE BUTTON
-    ========================= */
-
-    .theme-switch {
-      border: 1px solid var(--border);
-
+    .theme-toggle {
+      border: none;
       background: var(--green-light);
-
       width: 42px;
       height: 42px;
-
       border-radius: 50%;
-
       cursor: pointer;
-
-      display: flex;
-
-      justify-content: center;
-      align-items: center;
-
       font-size: 1.1rem;
-
-      transition:
-        transform 0.2s ease,
-        background 0.3s ease;
+      transition: transform 0.2s ease;
     }
 
-    .theme-switch:hover {
+    .theme-toggle:hover {
       transform: rotate(15deg) scale(1.05);
     }
 
-
-    /* =========================
-       GENERAL
-    ========================= */
-
-    section {
-      padding: 90px 7%;
-
-      text-align: center;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-
-      margin-bottom: 10px;
-    }
-
-    .section-description {
-      color: var(--text-light);
-
-      max-width: 650px;
-
-      margin: 0 auto 35px;
-    }
-
-
-    /* =========================
-       HERO
-    ========================= */
-
     .hero {
-      min-height: 80vh;
-
+      min-height: 75vh;
       display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
-
       align-items: center;
-
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
       background:
-        radial-gradient(
-          circle at 20% 20%,
-          var(--pink),
-          transparent 30%
-        ),
-        radial-gradient(
-          circle at 80% 70%,
-          var(--green-light),
-          transparent 35%
-        );
+        radial-gradient(circle at 20% 20%, var(--pink) 0, transparent 30%),
+        radial-gradient(circle at 80% 80%, var(--green-light) 0, transparent 30%),
+        var(--background);
+    }
+
+    .hero-content {
+      max-width: 800px;
     }
 
     .hero h1 {
       font-size: clamp(3rem, 8vw, 6rem);
-
       line-height: 1;
-
-      margin-bottom: 20px;
-
-      letter-spacing: -3px;
+      margin-bottom: 25px;
+      color: var(--text);
     }
 
     .hero p {
-      max-width: 700px;
-
+      max-width: 650px;
+      margin: 0 auto 35px;
       color: var(--text-light);
-
       font-size: 1.15rem;
-
-      margin-bottom: 30px;
     }
 
-    .hero-buttons {
+    .buttons {
       display: flex;
-
       justify-content: center;
-
       flex-wrap: wrap;
-
-      gap: 12px;
+      gap: 15px;
     }
 
-
-    /* =========================
-       BUTTONS
-    ========================= */
-
-    .button {
+    .btn {
       display: inline-block;
-
-      padding: 14px 25px;
-
+      padding: 13px 24px;
       border-radius: 999px;
-
       text-decoration: none;
-
       font-weight: 700;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .button:hover {
+    .btn:hover {
       transform: translateY(-3px);
-
-      box-shadow: 0 10px 25px var(--shadow);
+      box-shadow: 0 8px 20px var(--shadow);
     }
 
-    .primary {
+    .btn-primary {
       background: var(--text);
-
-      color: var(--background);
+      color: white;
     }
 
-    .secondary {
+    .btn-secondary {
       background: var(--pink);
-
       color: var(--text);
     }
 
+    section {
+      padding: 80px 6%;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-    /* =========================
-       GALLERY
-    ========================= */
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-light);
+    }
 
     .gallery {
       display: grid;
-
       grid-template-columns: repeat(2, 1fr);
-
       gap: 30px;
-
-      max-width: 750px;
-
-      margin: 35px auto 0;
     }
 
-    .pfp-card {
+    .art-card {
       background: var(--card);
-
       border: 1px solid var(--border);
-
-      border-radius: 25px;
-
-      padding: 12px 12px 20px;
-
-      text-align: center;
-
-      box-shadow: 0 5px 15px var(--shadow);
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background 0.3s ease;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: transform 0.25s ease;
     }
 
-    .pfp-card:hover {
-      transform: translateY(-10px);
-
-      box-shadow: 0 18px 40px var(--shadow);
+    .art-card:hover {
+      transform: translateY(-6px);
     }
 
-    .pfp-card img {
+    .art-card img {
       width: 100%;
-
-      aspect-ratio: 1 / 1;
-
-      object-fit: cover;
-
-      border-radius: 18px;
-
       display: block;
-
-      margin-bottom: 15px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
     }
 
-    .pfp-card h3 {
-      margin-bottom: 4px;
-
-      font-size: 1.2rem;
+    .art-info {
+      padding: 18px 20px;
     }
 
-    .pfp-card p {
+    .art-info h3 {
+      margin-bottom: 3px;
+    }
+
+    .art-info p {
       color: var(--muted);
     }
 
-
-    /* =========================
-       PRICES
-    ========================= */
-
     .prices {
       display: grid;
-
       grid-template-columns: repeat(3, 1fr);
-
-      gap: 20px;
-
-      max-width: 950px;
-
-      margin: 35px auto 0;
+      gap: 25px;
     }
 
     .price-card {
-      background: var(--card);
-
-      border: 1px solid var(--border);
-
-      border-radius: 22px;
-
-      padding: 30px 20px;
-
-      box-shadow: 0 5px 15px var(--shadow);
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.3s ease;
-
-      text-decoration: none;
-
-      color: var(--text);
-
       display: block;
-
-      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .price-card:hover {
-      transform: translateY(-8px);
-
+      transform: translateY(-7px);
       box-shadow: 0 15px 35px var(--shadow);
     }
 
     .price-card h3 {
-      font-size: 1.3rem;
-
+      font-size: 1.4rem;
       margin-bottom: 10px;
     }
 
     .price {
-      font-size: 2.2rem;
-
+      font-size: 2rem;
       font-weight: 800;
-
+      color: var(--pink-dark);
       margin-bottom: 10px;
     }
 
     .price-card p {
       color: var(--text-light);
+      margin-bottom: 20px;
     }
 
     .order-link {
       display: inline-block;
-
-      margin-top: 18px;
-
-      padding: 10px 18px;
-
-      border-radius: 999px;
-
-      background: var(--text);
-
-      color: var(--background);
-
+      color: var(--text);
       font-weight: 700;
-
-      transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
+      transition: transform 0.2s ease;
     }
 
     .price-card:hover .order-link {
       transform: translateX(5px);
-
-      opacity: 0.85;
     }
 
+    .currency-list {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
 
-    /* =========================
-       ORDER
-    ========================= */
+    .currency-loading {
+      opacity: 0.7;
+      font-style: italic;
+    }
 
     .order-box {
-      max-width: 750px;
-
-      margin: 0 auto;
-
-      padding: 45px 30px;
-
-      border-radius: 30px;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--pink),
-          var(--green-light)
-        );
-
-      border: 1px solid var(--border);
+      background: var(--green-light);
+      border-radius: 25px;
+      padding: 50px 30px;
+      text-align: center;
     }
 
     .order-box h2 {
+      font-size: 2.3rem;
       margin-bottom: 15px;
     }
 
     .order-box p {
-      max-width: 600px;
-
+      max-width: 700px;
       margin: 0 auto 25px;
-
       color: var(--text-light);
     }
-
-
-    /* =========================
-       CONTACT
-    ========================= */
 
     .contact-box {
-      max-width: 800px;
-
-      margin: 0 auto;
-
-      padding: 40px 25px;
-
       background: var(--card);
-
       border: 1px solid var(--border);
-
-      border-radius: 28px;
-
-      box-shadow: 0 8px 25px var(--shadow);
+      border-radius: 25px;
+      padding: 45px 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px var(--shadow);
     }
 
-    .contact-box h3 {
-      font-size: 1.8rem;
-
-      margin-bottom: 8px;
+    .contact-box h2 {
+      font-size: 2.3rem;
+      margin-bottom: 10px;
     }
 
-    .contact-box p {
+    .contact-box > p {
       color: var(--text-light);
-
       margin-bottom: 25px;
     }
 
     .contact-buttons {
       display: flex;
-
       justify-content: center;
-
-      align-items: center;
-
       flex-wrap: wrap;
-
-      gap: 12px;
+      gap: 15px;
     }
 
-    .contact-button {
-      border: none;
-
-      padding: 13px 20px;
-
+    .contact-btn {
+      display: inline-block;
+      padding: 12px 22px;
       border-radius: 999px;
-
-      font-weight: 700;
-
-      text-decoration: none;
-
-      cursor: pointer;
-
-      font-family: inherit;
-
-      transition:
-        transform 0.2s ease,
-        opacity 0.2s ease;
-    }
-
-    .contact-button:hover {
-      transform: translateY(-3px);
-
-      opacity: 0.85;
-    }
-
-    .email {
       background: var(--pink);
-
       color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.2s ease;
     }
 
-    .phone {
-      background: var(--green-light);
-
-      color: var(--text);
+    .contact-btn:hover {
+      transform: translateY(-3px);
     }
-
-    .discord {
-      background: var(--text);
-
-      color: var(--background);
-    }
-
-
-    /* =========================
-       DISCORD
-    ========================= */
 
     .discord-section {
       margin-top: 25px;
-
       padding-top: 25px;
-
       border-top: 1px solid var(--border);
-
       display: flex;
-
       justify-content: center;
-
       align-items: center;
-
       flex-wrap: wrap;
-
       gap: 15px;
     }
 
     .discord-user {
       color: var(--text-light);
-
       font-size: 1rem;
     }
 
     .discord-user strong {
       color: var(--text);
-
       font-size: 1.05rem;
     }
 
     .discord-join {
       display: inline-block;
-
       padding: 11px 20px;
-
       border-radius: 999px;
-
       background: #5865F2;
-
       color: white;
-
       text-decoration: none;
-
       font-weight: 700;
-
       transition:
         transform 0.2s ease,
         opacity 0.2s ease,
@@ -627,303 +386,186 @@
 
     .discord-join:hover {
       transform: translateY(-3px);
-
       opacity: 0.9;
-
       box-shadow: 0 8px 20px var(--shadow);
     }
 
-
-    /* =========================
-       FOOTER
-    ========================= */
-
     footer {
       background: var(--footer);
-
       color: white;
-
       text-align: center;
-
-      padding: 35px 20px;
-
-      margin-top: 30px;
+      padding: 30px 20px;
+      margin-top: 50px;
     }
 
     footer p {
-      opacity: 0.8;
-
-      font-size: 0.9rem;
+      opacity: 0.9;
     }
 
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 750px) {
-
-      nav {
-        padding: 15px 5%;
-      }
-
-      .right-side {
-        gap: 12px;
-      }
-
-      .links {
-        gap: 12px;
-      }
-
-      .links a {
-        font-size: 0.85rem;
-      }
-
-      .logo {
-        font-size: 1.1rem;
+    @media (max-width: 850px) {
+      .prices {
+        grid-template-columns: 1fr;
       }
 
       .gallery {
         grid-template-columns: 1fr;
-
-        max-width: 400px;
       }
 
-      .prices {
-        grid-template-columns: 1fr;
-
-        max-width: 400px;
+      .nav-links {
+        gap: 12px;
       }
 
-      section {
-        padding: 70px 5%;
+      .nav-links a {
+        display: none;
       }
+    }
 
-      .hero {
-        min-height: 75vh;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
+    @media (max-width: 750px) {
       .discord-section {
         flex-direction: column;
       }
-
     }
 
     @media (max-width: 500px) {
-
-      .logo {
-        font-size: 1rem;
+      nav {
+        padding: 12px 4%;
       }
 
-      .links {
-        gap: 8px;
+      section {
+        padding: 60px 5%;
       }
 
-      .links a {
-        font-size: 0.75rem;
+      .hero {
+        min-height: 70vh;
+        padding: 60px 20px;
       }
 
-      .theme-switch {
-        width: 36px;
-
-        height: 36px;
+      .hero h1 {
+        font-size: 3.3rem;
       }
 
+      .order-box h2,
+      .contact-box h2 {
+        font-size: 1.9rem;
+      }
     }
-
   </style>
 </head>
 
-
 <body>
 
-
-  <!-- =========================
-       NAVIGATION
-  ========================= -->
-
+  <!-- NAVIGATION -->
   <nav>
+    <a href="#" class="logo">F13 Visuals 🌸</a>
 
-    <a class="logo" href="#">
-      F13 Visuals 🌸
-    </a>
+    <div class="nav-links">
+      <a href="#gallery">Gallery</a>
+      <a href="#prices">Prices</a>
+      <a href="#order">Order</a>
+      <a href="#contact">Contact</a>
 
-    <div class="right-side">
-
-      <div class="links">
-
-        <a href="#gallery">
-          Gallery
-        </a>
-
-        <a href="#prices">
-          Prices
-        </a>
-
-        <a href="#order">
-          Order
-        </a>
-
-        <a href="#contact">
-          Contact
-        </a>
-
-      </div>
-
-      <button
-        class="theme-switch"
-        onclick="toggleTheme()"
-        aria-label="Toggle dark mode"
-      >
-        <span
-          class="theme-icon"
-          id="themeIcon"
-        >
-          ☀️
-        </span>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span id="themeIcon">☀️</span>
       </button>
-
     </div>
-
   </nav>
 
 
-  <!-- =========================
-       HERO
-  ========================= -->
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>F13 Visuals 🌸</h1>
 
-  <section class="hero">
+      <p>
+        Custom artwork, PFPs, icons, drawings and more —
+        made with creativity and your ideas in mind.
+      </p>
 
-    <h1>
-      F13 Visuals 🌸
-    </h1>
+      <div class="buttons">
+        <a href="#gallery" class="btn btn-primary">
+          View my work
+        </a>
 
-    <p>
-      Custom artwork, PFPs, icons, drawings and more —
-      made with creativity and your ideas in mind.
-    </p>
-
-    <div class="hero-buttons">
-
-      <a
-        class="button primary"
-        href="#gallery"
-      >
-        View my work
-      </a>
-
-      <a
-        class="button secondary"
-        href="#order"
-      >
-        Commission artwork
-      </a>
-
+        <a href="#order" class="btn btn-secondary">
+          Commission artwork
+        </a>
+      </div>
     </div>
+  </header>
 
-  </section>
 
-
-  <!-- =========================
-       GALLERY
-  ========================= -->
-
+  <!-- GALLERY -->
   <section id="gallery">
-
-    <h2>
-      My Work
-    </h2>
-
-    <p class="section-description">
-      Here are some examples of my artwork.
-      I make PFPs, icons, drawings and other custom designs.
-    </p>
+    <div class="section-title">
+      <h2>My Work</h2>
+      <p>
+        Here are some examples of my artwork. I make PFPs, icons,
+        drawings and other custom designs.
+      </p>
+    </div>
 
     <div class="gallery">
 
-
-      <div class="pfp-card">
-
+      <div class="art-card">
         <img
           src="UG's%20PFP.png"
           alt="UG's artwork"
         >
 
-        <h3>
-          UG
-        </h3>
-
-        <p>
-          Custom Artwork
-        </p>
-
+        <div class="art-info">
+          <h3>UG</h3>
+          <p>Custom Artwork</p>
+        </div>
       </div>
 
 
-      <div class="pfp-card">
-
+      <div class="art-card">
         <img
           src="Ravixx's%20PFP.png"
           alt="Ravixx's artwork"
         >
 
-        <h3>
-          Ravixx
-        </h3>
-
-        <p>
-          Custom Artwork
-        </p>
-
+        <div class="art-info">
+          <h3>Ravixx</h3>
+          <p>Custom Artwork</p>
+        </div>
       </div>
 
-
     </div>
-
   </section>
 
 
-  <!-- =========================
-       PRICES
-  ========================= -->
-
+  <!-- PRICES -->
   <section id="prices">
+    <div class="section-title">
+      <h2>Prices</h2>
 
-    <h2>
-      Prices
-    </h2>
-
-    <p class="section-description">
-      Prices depend on the type and detail of the artwork.
-      If you have a specific idea, contact me for a quote.
-    </p>
+      <p>
+        Prices are shown in euros. Approximate values in other currencies
+        are automatically calculated using current exchange rates.
+      </p>
+    </div>
 
     <div class="prices">
 
-
       <!-- SIMPLE -->
+      <a href="#order" class="price-card">
 
-      <a
-        href="#order"
-        class="price-card"
-      >
-
-        <h3>
-          Simple
-        </h3>
+        <h3>Simple</h3>
 
         <div class="price">
-          $1–$3
+          €1–€3
         </div>
 
         <p>
-          Simple icons, PFPs and artwork
-          with a clean design.
+          Simple icons, PFPs and artwork with a clean design.
         </p>
+
+        <div class="currency-list currency-simple">
+          <div class="currency-loading">
+            Loading currency conversions...
+          </div>
+        </div>
 
         <span class="order-link">
           Place an order →
@@ -933,24 +575,23 @@
 
 
       <!-- CUSTOM -->
+      <a href="#order" class="price-card">
 
-      <a
-        href="#order"
-        class="price-card"
-      >
-
-        <h3>
-          Custom
-        </h3>
+        <h3>Custom</h3>
 
         <div class="price">
-          $4–$7
+          €4–€7
         </div>
 
         <p>
-          Custom drawings and designs
-          made around your idea.
+          Custom drawings and designs made around your idea.
         </p>
+
+        <div class="currency-list currency-custom">
+          <div class="currency-loading">
+            Loading currency conversions...
+          </div>
+        </div>
 
         <span class="order-link">
           Place an order →
@@ -960,24 +601,23 @@
 
 
       <!-- DETAILED -->
+      <a href="#order" class="price-card">
 
-      <a
-        href="#order"
-        class="price-card"
-      >
-
-        <h3>
-          Detailed
-        </h3>
+        <h3>Detailed</h3>
 
         <div class="price">
-          $8–$10
+          €8–€10
         </div>
 
         <p>
-          More detailed artwork with
-          extra visual elements.
+          More detailed artwork with extra visual elements.
         </p>
+
+        <div class="currency-list currency-detailed">
+          <div class="currency-loading">
+            Loading currency conversions...
+          </div>
+        </div>
 
         <span class="order-link">
           Place an order →
@@ -985,33 +625,26 @@
 
       </a>
 
-
     </div>
-
   </section>
 
 
-  <!-- =========================
-       ORDER
-  ========================= -->
-
+  <!-- ORDER -->
   <section id="order">
 
     <div class="order-box">
 
-      <h2>
-        Want some custom artwork? 🎨
-      </h2>
+      <h2>Want some custom artwork? 🎨</h2>
 
       <p>
-        Whether you want a PFP, icon, drawing or something
-        completely different, tell me what you have in mind.
-        You can also send pictures or references.
+        Whether you want a PFP, icon, drawing or something completely
+        different, tell me what you have in mind. You can also send
+        pictures or references.
       </p>
 
       <a
-        class="button primary"
         href="mailto:service.f13visuals@gmail.com?subject=F13%20Visuals%20Commission"
+        class="btn btn-primary"
       >
         Start a commission
       </a>
@@ -1021,55 +654,36 @@
   </section>
 
 
-  <!-- =========================
-       CONTACT
-  ========================= -->
-
+  <!-- CONTACT -->
   <section id="contact">
-
-    <h2>
-      Contact me
-    </h2>
-
-    <p class="section-description">
-      Have a question, want a commission, or want to
-      discuss an artwork idea? Get in touch with me.
-    </p>
 
     <div class="contact-box">
 
-      <h3>
-        Let's create something 🌸
-      </h3>
+      <h2>Contact me</h2>
 
       <p>
-        Choose how you'd like to contact F13 Visuals.
+        Have a question, want a commission, or have an artwork idea?
+        Feel free to contact me!
       </p>
-
-
-      <!-- EMAIL / PHONE -->
 
       <div class="contact-buttons">
 
         <a
-          class="contact-button email"
           href="mailto:service.f13visuals@gmail.com"
+          class="contact-btn"
         >
           📧 Email Me
         </a>
 
-
         <a
-          class="contact-button phone"
           href="sms:+31627350589"
+          class="contact-btn"
         >
           📱 Text Me
         </a>
 
       </div>
 
-
-      <!-- DISCORD -->
 
       <div class="discord-section">
 
@@ -1094,12 +708,8 @@
   </section>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
-
+  <!-- FOOTER -->
   <footer>
-
     <p>
       © 2026 F13 Visuals 🌸
     </p>
@@ -1107,16 +717,11 @@
     <p>
       Custom artwork made with creativity.
     </p>
-
   </footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
-
+  <!-- JAVASCRIPT -->
   <script>
-
 
     /* =========================
        DARK MODE
@@ -1131,7 +736,6 @@
 
       const icon =
         document.getElementById("themeIcon");
-
 
       if (isDark) {
 
@@ -1152,27 +756,136 @@
         );
 
       }
-
     }
 
 
-    /* =========================
-       LOAD SAVED THEME
-    ========================= */
-
     const savedTheme =
       localStorage.getItem("theme");
-
 
     if (savedTheme === "dark") {
 
       document.body.classList.add("dark");
 
-      document
-        .getElementById("themeIcon")
-        .textContent = "🌙";
+      document.getElementById(
+        "themeIcon"
+      ).textContent = "🌙";
 
     }
+
+
+    /* =========================
+       CURRENCY CONVERSION
+    ========================= */
+
+    async function loadCurrencies() {
+
+      try {
+
+        /*
+          Gets the latest EUR exchange rates.
+          The website uses EUR as the base currency.
+        */
+
+        const response = await fetch(
+          "https://api.frankfurter.app/latest?from=EUR&to=USD,GBP,CAD,AUD,JPY"
+        );
+
+        if (!response.ok) {
+          throw new Error("Currency API error");
+        }
+
+        const data = await response.json();
+
+        const rates = data.rates;
+
+
+        function convert(amount, currency) {
+
+          if (currency === "EUR") {
+            return amount;
+          }
+
+          return amount * rates[currency];
+        }
+
+
+        function format(currency, amount) {
+
+          const symbols = {
+            EUR: "€",
+            USD: "$",
+            GBP: "£",
+            CAD: "C$",
+            AUD: "A$",
+            JPY: "¥"
+          };
+
+          const decimals =
+            currency === "JPY" ? 0 : 2;
+
+          return (
+            symbols[currency] +
+            convert(amount, currency)
+              .toFixed(decimals)
+          );
+        }
+
+
+        function currencyText(min, max) {
+
+          return `
+            <div>🇪🇺 ${format("EUR", min)} – ${format("EUR", max)} EUR</div>
+            <div>🇺🇸 ${format("USD", min)} – ${format("USD", max)} USD</div>
+            <div>🇬🇧 ${format("GBP", min)} – ${format("GBP", max)} GBP</div>
+            <div>🇨🇦 ${format("CAD", min)} – ${format("CAD", max)} CAD</div>
+            <div>🇦🇺 ${format("AUD", min)} – ${format("AUD", max)} AUD</div>
+            <div>🇯🇵 ${format("JPY", min)} – ${format("JPY", max)} JPY</div>
+          `;
+
+        }
+
+
+        document.querySelector(
+          ".currency-simple"
+        ).innerHTML =
+          currencyText(1, 3);
+
+
+        document.querySelector(
+          ".currency-custom"
+        ).innerHTML =
+          currencyText(4, 7);
+
+
+        document.querySelector(
+          ".currency-detailed"
+        ).innerHTML =
+          currencyText(8, 10);
+
+
+      } catch (error) {
+
+        console.error(
+          "Could not load currency rates:",
+          error
+        );
+
+
+        document.querySelectorAll(
+          ".currency-list"
+        ).forEach(element => {
+
+          element.innerHTML =
+            "Currency conversion currently unavailable.";
+
+        });
+
+      }
+
+    }
+
+
+    loadCurrencies();
 
   </script>
 
